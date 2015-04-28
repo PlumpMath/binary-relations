@@ -1,4 +1,4 @@
-function CreateMatrixfromScalar(binary_relation_index)
+function CreateBinaryRelationFromItsIndex(binary_relation_index)
   for i = 1:n^2
     br[i] = convert(Bool, binary_relation_index & 1)
     binary_relation_index >>>= 1
@@ -39,7 +39,7 @@ br = trues(n,n)
 powers = zeros(8) # how to preset it's type?
 # iteration through all binary relations of given rank n:
 for binary_relation_index = 0:2^n^2
-  binary_relation = CreateMatrixfromScalar(binary_relation_index)
+  binary_relation = CreateBinaryRelationFromItsIndex(binary_relation_index)
   # at this poit binary relation is represented as a boolean matrix
   properties = 0x00 # clear flags
   isReflexive (binary_relation) && properties |= reflexivity
