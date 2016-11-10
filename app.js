@@ -40,9 +40,9 @@ var properties;
 var reflexivity  = 0x01;
 var antisymmetry = 0x02;
 var transitivity = 0x04;
-var powers = [];
+var cardinalities = [];
 for (properties = 0; properties < 8; properties++) {
-    powers[properties] = 0;
+    cardinalities[properties] = 0;
 }
 var binary_relation = [];
 for (i = 0; i < n; i++) {
@@ -59,10 +59,10 @@ for (var binary_relation_index = 0; binary_relation_index < Math.pow(2, n * n); 
         properties |= antisymmetry;
     if (isTransitive(binary_relation))
         properties |= transitivity;
-    powers[properties]++;
+    cardinalities[properties]++;
 }
 var fs = require('fs');
-var filename = 'powers' + n + '.txt';
+var filename = 'cardinalities' + n + '.txt';
 for (properties = 0; properties < 8; properties++){
-    fs.appendFileSync(filename, powers[properties] + ' ');
+    fs.appendFileSync(filename, cardinalities[properties] + ' ');
 }
